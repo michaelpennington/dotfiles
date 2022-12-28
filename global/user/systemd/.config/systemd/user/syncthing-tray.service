@@ -1,0 +1,13 @@
+[Unit]
+Description=Start syncthing tray
+After=syslog.target network.target network-online.target graphical-session.target
+Wants=network-online.target graphical-session.target
+BindsTo=graphical-session.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/sleep 15
+ExecStart=/usr/bin/syncthingtray-qt6 --wait
+
+[Install]
+WantedBy=graphical-session.target

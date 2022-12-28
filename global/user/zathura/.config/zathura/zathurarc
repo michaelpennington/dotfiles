@@ -1,0 +1,8 @@
+map [normal] J scroll down
+map [normal] K scroll up
+map [normal] j navigate next
+map [normal] k navigate previous
+map [fullscreen] J scroll down
+map [fullscreen] K scroll up
+map [fullscreen] j navigate next
+map [fullscreen] k navigate previous

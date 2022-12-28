@@ -1,0 +1,10 @@
+{
+  "public_key": {
+    "version": 0,
+    "algorithm": "Ed25519",
+    "signature": "2qL6MYhUpTxCFN97mEkWMYM7uYoGK6oymhFZ29Vyvrxyh7Hctw2fmd9igHiBy3uoz15tHWTYpMPaX4EiAMSEh1kK",
+    "key": "3ZDJZAa9GWfAEQzbwHbpqRcJw9Uq9DfWh3CSTQEha1nC"
+  },
+  "login": "mpennington",
+  "last_modified": 1670289955
+}

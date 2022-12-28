@@ -1,0 +1,28 @@
+{
+   Ignore dl_init bugs.
+   Memcheck:Leak
+   ...
+   fun:_dl_init
+   ...
+}
+{
+   Ignore dl_open bugs.
+   Memcheck:Leak
+   ...
+   fun:_dl_open
+   ...
+}
+{
+   Ignore dl_close bugs.
+   Memcheck:Leak
+   ...
+   fun:_dl_close
+   ...
+}
+{
+   Ignore dl_close_worker bugs.
+   Memcheck:Leak
+   ...
+   fun:_dl_close_worker
+   ...
+}

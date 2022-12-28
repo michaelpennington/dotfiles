@@ -1,0 +1,8 @@
+(B) 2022-08-09 Write initial +todo.txt file file:/home/mpennington/todo.txt id:todotxt began:4pm due:2022-08-09
+(B) 2022-08-09 Write @Theron at @GreenRiver back and thank him needs:todotxt email:ttoomey@greenriver.org due:2022-08-09
+(B) 2022-08-09 Begin work on interview coding problems for @GreenRiver id:begingr needs:todotxt link:https://docs.google.com/document/d/1SW8jcxQGIe6rhNFlCOWxOTRz2_-B6tf8WSZsh0PcL2Y/edit due:2022-08-09
+(B) 2022-08-09 Finish to @GreenRiver problems to best of ability needs:begingr id:finishgr link:https://docs.google.com/document/d/1SW8jcxQGIe6rhNFlCOWxOTRz2_-B6tf8WSZsh0PcL2Y/edit due:2022-08-11
+(B) 2022-08-09 Email @Theron at @GreenRiver with any questions needs:finishgr link:https://docs.google.com/document/d/1SW8jcxQGIe6rhNFlCOWxOTRz2_-B6tf8WSZsh0PcL2Y/edit due:2022-08-11
+(C) 2022-08-09 Write @Rust +todo.txt tui/cli for @productivity goal:2022-08-11 file:/home/mpennington/Documents/Programs/Rust/torres/
+x 2022-08-09 2022-08-09 Email @Elizabeth about playing at @SMMVT on Aug 31st date:2022-08-31 email:ecmcewen@gmail.com pri:B
+
