@@ -1,0 +1,15 @@
+[Unit]
+Description=Set wallpaper to bing image of the day
+BindsTo=sway-session.target
+Requires=NetworkManager-wait-online.service
+After=NetworkManager-wait-online.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/mpennington/Pictures/Wallpapers/
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/home/mpennington/.cargo/bin/bingpot
+ExecStart=swaymsg output "*" bg /home/mpennington/Pictures/Wallpapers/wallpaper.jpg fill
+
+[Install]
+WantedBy=sway-session.target
