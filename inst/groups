@@ -1,1 +1,21 @@
-base base-devel xorg xorg-apps xorg-fonts gnome gnome-extra archlinux-tools libretro multilib-devel pro-audio qt5 qt6 vulkan-devel
+alsa
+archlinux-tools
+arduino
+base
+base-devel
+gnome
+gnome-extra
+libretro
+mingw-w64
+multilib-devel
+pro-audio
+pyqt5
+pyqt6
+qt5
+qt6
+realtime
+risc-v
+vulkan-devel
+xorg
+xorg-apps
+xorg-fonts
