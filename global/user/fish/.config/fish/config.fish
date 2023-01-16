@@ -27,9 +27,10 @@ if status is-interactive
     fish_add_path -P -a ~/.local/bin
     fish_add_path -P -a ~/.cargo/bin
     bass source /etc/profile
-    if not set -q SSH_CLIENT or not set -q SSH_CONNECTION
-        bass source /usr/bin/wayland_enablement.sh
-    else
+    echo $status
+    if set -q SSH_CLIENT; or set -q SSH_CONNECTION; or set -q WSL_DISTRO_NAME; or set -q WSLENV; or set -q WSL_INTEROP
         bass source /usr/bin/wayland_disablement.sh
+    else
+        bass source /usr/bin/wayland_enablement.sh
     end
 end
