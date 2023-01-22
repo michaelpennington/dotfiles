@@ -6,12 +6,7 @@ if status is-interactive
     set fish_cursor_visual block
     set -gx fish_vi_force_cursor
     fish_vi_cursor
-    set -gx CC /usr/bin/clang
     set -gx BROWSER /usr/bin/firefox
-    set -gx CXX /usr/bin/clang++
-    set -gx LD /usr/bin/ld.lld
-    set -gx CC_LD /usr/bin/ld.lld
-    set -gx CXX_LD /usr/bin/ld.lld
     set -gx LANG en_US.UTF-8
     set -gx LC_CTYPE en_US.UTF-8
     set -gx LANGUAGE en_US.UTF-8
