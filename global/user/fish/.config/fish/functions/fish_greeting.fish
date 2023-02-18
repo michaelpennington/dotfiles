@@ -1,5 +1,5 @@
 function fish_greeting
-  echo Good (print_tod), (set_color magenta)$USER(set_color normal)!\n
+  echo Good (print_tod), (set_color magenta)$USER(set_color normal)! Welcome to (set_color red)$hostname(set_color normal).\n
   echo -ns \t"The date is " (set_color yellow; date +"%A"; set_color normal) ", "
   echo -ns (set_color green; date +"%B %e"; set_color normal) ", "
   echo -s (set_color blue; date +"%Y"; set_color normal) "."
