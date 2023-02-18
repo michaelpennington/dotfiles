@@ -19,10 +19,9 @@ if status is-interactive
 
     zoxide init fish | source
     starship init fish | source
+    bass source /etc/profile
     fish_add_path -P -a ~/.local/bin
     fish_add_path -P -a ~/.cargo/bin
-    bass source /etc/profile
-    echo $status
     if set -q SSH_CLIENT; or set -q SSH_CONNECTION; or set -q WSL_DISTRO_NAME; or set -q WSLENV; or set -q WSL_INTEROP
         bass source /usr/bin/wayland_disablement.sh
     else
