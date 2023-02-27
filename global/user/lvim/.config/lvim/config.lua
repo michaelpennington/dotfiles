@@ -203,7 +203,7 @@ lvim.plugins = {
   { 'nvim-telescope/telescope-fzy-native.nvim' },
   {
     'saecki/crates.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('crates').setup()
     end,
@@ -211,7 +211,7 @@ lvim.plugins = {
   -- { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
   { 'pest-parser/pest.vim' },
   { "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup {}
     end
@@ -220,7 +220,7 @@ lvim.plugins = {
     config = function()
       require('neogen').setup {}
     end,
-    requires = "nvim-treesitter/nvim-treesitter"
+    dependencies = "nvim-treesitter/nvim-treesitter"
   },
   { 'tikhomirov/vim-glsl' },
   { 'nanotee/zoxide.vim' },
