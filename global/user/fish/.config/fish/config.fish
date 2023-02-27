@@ -14,6 +14,8 @@ if status is-interactive
     set -gx EDITOR lvim
     set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
     set -gx CHROOT $HOME/chroot
+    set -gx ASYMPTOTE_PSVIEWER "/usr/bin/zathura"
+    set -gx ASYMPTOTE_PDFVIEWER "/usr/bin/zathura"
 
     # alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 
