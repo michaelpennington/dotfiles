@@ -29,4 +29,6 @@ if status is-interactive
     else
         bass source /usr/bin/wayland_enablement.sh
     end
+
+    theme_gruvbox dark medium
 end

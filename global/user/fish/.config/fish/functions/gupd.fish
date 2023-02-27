@@ -18,7 +18,12 @@ function gupd
             # sudo emaint sync -A || return 1
             echo "$now" > "$timefile"
         case 'g' 'G'
-            set repos (cat /etc/portage/repos.conf/eselect-repo.conf | string match -ae '[' | string sub -s '2' -e '-1')
+            set repos (
+              cat "/etc/portage/repos.conf/eselect-repo.conf" \
+                | string match -ae '[' \
+                | string sub -s '2' -e '-1' \
+                | string match -v '*local*'
+            )
             for repo in $repos
                 sudo emaint sync -r $repo || return 1
             end
