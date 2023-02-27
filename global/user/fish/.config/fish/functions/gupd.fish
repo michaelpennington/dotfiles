@@ -1,7 +1,7 @@
 set timefile "/home/mpennington/.cache/gupd/last-update"
 
 function gupd
-    read -p 'gcolor y "Update repositories?" w "[" g "a" w "/" m "g" w "/" r "N" w "] "' var
+    read -p 'gcolor y "Update repositories?" w " [" g "a" w "/" m "g" w "/" r "N" w "] "' var
     switch $var
         case 'a' 'A' 'y' 'Y'
             if test -e "$timefile"
