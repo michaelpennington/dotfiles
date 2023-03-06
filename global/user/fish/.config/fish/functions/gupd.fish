@@ -15,7 +15,7 @@ function gupd
                 end
             end
             gcolor -n g "Will update all repos"
-            # sudo emaint sync -A || return 1
+            sudo emaint sync -A || return 1
             echo "$now" > "$timefile"
         case 'g' 'G'
             set repos (
