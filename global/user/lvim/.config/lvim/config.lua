@@ -61,15 +61,15 @@ local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
   -- for input mode
   i = {
-    ["<C-j>"] = actions.move_selection_next,
-    ["<C-k>"] = actions.move_selection_previous,
-    ["<C-n>"] = actions.cycle_history_next,
-    ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.cycle_history_next,
+        ["<C-p>"] = actions.cycle_history_prev,
   },
   -- for normal mode
   n = {
-    ["<C-j>"] = actions.move_selection_next,
-    ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
   },
 }
 
@@ -210,13 +210,15 @@ lvim.plugins = {
   },
   -- { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
   { 'pest-parser/pest.vim' },
-  { "folke/todo-comments.nvim",
+  {
+    "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup {}
     end
   },
-  { "danymat/neogen",
+  {
+    "danymat/neogen",
     config = function()
       require('neogen').setup {}
     end,
@@ -224,7 +226,8 @@ lvim.plugins = {
   },
   { 'tikhomirov/vim-glsl' },
   { 'nanotee/zoxide.vim' },
-  { "ellisonleao/glow.nvim",
+  {
+    "ellisonleao/glow.nvim",
     config = function()
       require('glow').setup {}
     end
@@ -239,7 +242,8 @@ lvim.plugins = {
       }
     end
   },
-  { "ziontee113/color-picker.nvim",
+  {
+    "ziontee113/color-picker.nvim",
     config = function()
       require("color-picker")
     end,
@@ -327,7 +331,7 @@ rt.setup({
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
     settings = {
-      ['rust-analyzer'] = {
+          ['rust-analyzer'] = {
         checkOnSave = {
           command = "clippy"
         }
