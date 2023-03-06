@@ -1,12 +1,12 @@
-set timefile "/home/mpennington/.cache/gupd/last-update"
-
 function gupd
+    set -l timefile "/home/mpennington/.cache/gupd/last-update"
+
     read -p 'gcolor y "Update repositories?" w " [" g "a" w "/" m "g" w "/" r "N" w "] "' var
     switch $var
         case 'a' 'A' 'y' 'Y'
+            set -l now (date '+%s')
             if test -e "$timefile"
                 set old_time (cat "$timefile")
-                set now (date '+%s')
                 if test (math "$old_time + 86400") -gt $now
                     set remaining (math "$old_time + 86400 - $now")
                     remaining $remaining | read -l amt unit
