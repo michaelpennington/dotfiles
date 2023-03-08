@@ -40,7 +40,7 @@ for_window [class="roho"] floating enable
 seat seat0 hide_cursor 10000
 seat seat0 xcursor_theme phinger-cursors 24
 
-exec "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+exec "/usr/libexec/polkit-gnome-authentication-agent-1"
 
 ### Output configuration
 #
