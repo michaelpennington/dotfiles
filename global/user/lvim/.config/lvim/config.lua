@@ -61,15 +61,15 @@ local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
   -- for input mode
   i = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+    ["<C-n>"] = actions.cycle_history_next,
+    ["<C-p>"] = actions.cycle_history_prev,
   },
   -- for normal mode
   n = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
   },
 }
 
@@ -247,7 +247,16 @@ lvim.plugins = {
     config = function()
       require("color-picker")
     end,
-  }
+  },
+  { 'stevearc/dressing.nvim' },
+  {
+    "ziontee113/icon-picker.nvim",
+    config = function()
+      require("icon-picker").setup({
+        disable_legacy_commands = true
+      })
+    end,
+  },
 }
 
 
@@ -331,7 +340,7 @@ rt.setup({
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
     settings = {
-          ['rust-analyzer'] = {
+      ['rust-analyzer'] = {
         checkOnSave = {
           command = "clippy"
         }
@@ -339,6 +348,12 @@ rt.setup({
     }
   },
 })
+
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
+vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
 
 require('lspconfig').taplo.setup {}
 
