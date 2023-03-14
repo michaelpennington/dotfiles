@@ -15,10 +15,10 @@ vim.g.gruvbox_italic_keywords = false
 vim.g.gruvbox_italic_comments = true
 vim.g.gruvbox_flat_style = "dark"
 vim.g.gruvbox_transparent = true
-vim.cmd [[colorscheme gruvbox-flat]]
+-- vim.cmd [[colorscheme gruvbox-flat]]
 lvim.colorscheme = 'gruvbox-flat'
 
-vim.o.background = 'dark'
+-- vim.o.background = 'dark'
 
 vim.api.nvim_set_keymap('n', 'H', ':bp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'L', ':bn<CR>', { noremap = true, silent = true })
@@ -187,7 +187,7 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
-  { "michaelpennington/gruvbox-flat.nvim" },
+  { "eddyekofo94/gruvbox-flat.nvim" },
   {
     "ray-x/lsp_signature.nvim",
     config = function() require "lsp_signature".on_attach() end,
@@ -257,6 +257,30 @@ lvim.plugins = {
       })
     end,
   },
+  {
+    "nvim-neorg/neorg",
+    version = "*",
+    ft = "norg",
+    after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    config = function()
+      require('neorg').setup {
+        load = {
+          ["core.defaults"] = {},       -- Loads default behaviour
+          ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.norg.dirman"] = {      -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+    build = ":Neorg sync-parsers",
+    dependencies = "nvim-lua/plenary.nvim",
+  },
+  { 'nvim-treesitter/playground' },
 }
 
 
@@ -353,7 +377,7 @@ local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
 vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
-vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
+vim.keymap.set("i", "<C-e>", "<cmd>IconPickerInsert<cr>", opts)
 
 require('lspconfig').taplo.setup {}
 
@@ -363,3 +387,12 @@ require('lspconfig').taplo.setup {}
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+
+
+vim.cmd([[
+augroup MyColors
+autocmd!
+autocmd ColorScheme * highlight @text.strong cterm=bold gui=bold
+autocmd ColorScheme * highlight @text.emphasis cterm=italic gui=italic
+augroup end
+]])

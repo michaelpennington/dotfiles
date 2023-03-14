@@ -29,6 +29,7 @@ set $menu exec $term start --class "launcher" -- /usr/bin/sway-launcher-desktop
 
 for_window [class="KihoTestbed"] floating enable
 for_window [app_id="KihoTestbed"] floating enable
+for_window [class="fontforge"] floating enable
 
 # for_window [app_id="qemu"] floating enable
 for_window [app_id="wub"] floating enable

@@ -1,5 +1,5 @@
 function getpks
-  set -l pks (cat $argv[1] | string split -n '\n')
+  set -l pks (cat $argv[1] | string split -n '\n' | string match -v -r '#.*')
   set -l sys_pks (cat /var/lib/portage/world | string split -n '\n')
 
   for pk in $pks
