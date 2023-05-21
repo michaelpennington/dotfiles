@@ -268,5 +268,7 @@ bar {
 include /etc/sway/config.d/*
 include /home/mpennington/.config/sway/config.d/*.conf
 
+exec_always dbus-update-activation-environment --systemd DISPLAY
+
 exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
 

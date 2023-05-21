@@ -29,7 +29,8 @@
 	"modules-right": [
 		"custom/arrow1",
 		//"custom/alsa",
-		"pulseaudio",
+		//"pulseaudio",
+    "wireplumber",
 		//"sndio",
 		"custom/arrow2",
 		"network",
@@ -77,6 +78,12 @@
 		"format": "{:%I:%M %p}",
 		"tooltip": false
 	},
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": ["", "", ""]
+  },
 
   "idle_inhibitor": {
     "format": " {icon} ",

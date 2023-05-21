@@ -102,6 +102,7 @@
 #mode,
 #network,
 #pulseaudio,
+#wireplumber,
 #temperature,
 #custom-alsa,
 #bluetooth,
@@ -181,9 +182,11 @@ git push -u origin main
 #window {
 	margin-right: 40px;
 	margin-left: 40px;
+  color: @dark;
 }
 
 #custom-alsa,
+#wireplumber,
 #pulseaudio,
 #sndio {
 	background: @sound;
