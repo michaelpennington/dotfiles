@@ -1,5 +1,12 @@
 local wezterm = require 'wezterm'
 
+local font_size = 12
+local hostname_file = io.open("/etc/hostname", "r")
+if (hostname_file:read() == "COMPY10500")
+then
+  font_size = 15.5
+end
+
 return {
   -- default_prog = { '/home/mpennington/.local/bin/start_zellij.fish' }
   color_scheme = "Gruvbox dark, pale (base16)",
@@ -8,7 +15,7 @@ return {
     family = 'Fantasque Sans Mono',
     harfbuzz_features = { 'ss01' }
   },
-  font_size = 12.0, -- 🦀 CRAB!
+  font_size = font_size, -- 🦀 CRAB!
   window_background_opacity = 0.92,
   allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
   -- term = "wezterm",

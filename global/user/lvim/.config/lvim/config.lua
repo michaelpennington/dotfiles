@@ -267,7 +267,7 @@ lvim.plugins = {
         load = {
           ["core.defaults"] = {},       -- Loads default behaviour
           ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.norg.dirman"] = {      -- Manages Neorg workspaces
+          ["core.dirman"] = {           -- Manages Neorg workspaces
             config = {
               workspaces = {
                 notes = "~/notes",
@@ -295,12 +295,42 @@ dap.adapters.lldb = {
   command = '/usr/bin/lldb-vscode',
   name = 'lldb'
 }
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = '/home/mpennington/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  name = 'cppdbg',
+}
 
+-- dap.configurations.cpp = {
+--   {
+--     name = 'Launch',
+--     type = 'lldb',
+--     request = 'launch',
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = '${workspaceFolder}',
+--     stopOnEntry = false,
+--     args = {},
+--     runInTerminal = true,
+--     env = function()
+--       local variables = {}
+--       for k, v in pairs(vim.fn.environ()) do
+--         table.insert(variables, string.format("%s=%s", k, v))
+--       end
+--       return variables
+--     end,
+--   }
+-- }
 dap.configurations.cpp = {
   {
-    name = 'Launch',
-    type = 'lldb',
+    name = 'Attach to gdbserver :3333',
+    type = 'cppdbg',
     request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:3333',
+    miDebuggerPath = '/usr/bin/arm-none-eabi-gdb',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
@@ -308,6 +338,13 @@ dap.configurations.cpp = {
     stopOnEntry = false,
     args = {},
     runInTerminal = true,
+    setupCommands = {
+      {
+        text = '-enable-pretty-printing',
+        description = 'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
     env = function()
       local variables = {}
       for k, v in pairs(vim.fn.environ()) do
