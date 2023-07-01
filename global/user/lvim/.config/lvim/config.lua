@@ -24,6 +24,8 @@ vim.api.nvim_set_keymap('n', 'H', ':bp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'L', ':bn<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', ';', ':LvimToggleFormatOnSave<CR>', { noremap = true, silent = true })
 
+vim.opt.mouse = ""
+
 -- general
 
 vim.cmd [[set nrformats+=alpha]]
