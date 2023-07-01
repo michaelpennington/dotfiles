@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 local font_size = 12
 local hostname_file = io.open("/etc/hostname", "r")
-if (hostname_file:read() == "COMPY10500")
+if (hostname_file ~= nil and hostname_file:read() == "COMPY10500")
 then
   font_size = 15.5
 end
@@ -33,5 +33,6 @@ return {
       mods = 'CTRL|SHIFT',
       action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
     },
+
   },
 }
