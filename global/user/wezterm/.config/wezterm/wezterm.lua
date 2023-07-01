@@ -35,32 +35,32 @@ return {
     },
     {
       key = 'j',
-      mods = 'CTRL|SHIFT',
+      mods = 'ALT',
       action = wezterm.action.ActivatePaneDirection 'Down'
     },
     {
       key = 'k',
-      mods = 'CTRL|SHIFT',
+      mods = 'ALT',
       action = wezterm.action.ActivatePaneDirection 'Up'
     },
     {
       key = 'h',
-      mods = 'CTRL|SHIFT',
+      mods = 'ALT',
       action = wezterm.action.ActivatePaneDirection 'Left'
     },
     {
       key = 'l',
-      mods = 'CTRL|SHIFT',
+      mods = 'ALT',
       action = wezterm.action.ActivatePaneDirection 'Right'
     },
     {
       key = 'h',
-      mods = 'ALT',
+      mods = 'CTRL|SHIFT',
       action = wezterm.action.ActivateTabRelative(-1)
     },
     {
       key = 'l',
-      mods = 'ALT',
+      mods = 'CTRL|SHIFT',
       action = wezterm.action.ActivateTabRelative(1)
     },
   },
