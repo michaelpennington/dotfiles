@@ -19,7 +19,7 @@ return {
   window_background_opacity = 0.92,
   allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
   -- term = "wezterm",
-  xcursor_theme = "phinger-cursors",
+  -- xcursor_theme = "phinger-cursors",
   xcursor_size = 24,
   window_decorations = "NONE",
   keys = {
@@ -33,6 +33,35 @@ return {
       mods = 'CTRL|SHIFT',
       action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
     },
-
+    {
+      key = 'j',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.ActivatePaneDirection 'Down'
+    },
+    {
+      key = 'k',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.ActivatePaneDirection 'Up'
+    },
+    {
+      key = 'h',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.ActivatePaneDirection 'Left'
+    },
+    {
+      key = 'l',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.ActivatePaneDirection 'Right'
+    },
+    {
+      key = 'h',
+      mods = 'ALT',
+      action = wezterm.action.ActivateTabRelative(-1)
+    },
+    {
+      key = 'l',
+      mods = 'ALT',
+      action = wezterm.action.ActivateTabRelative(1)
+    },
   },
 }
