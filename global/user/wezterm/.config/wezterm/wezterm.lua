@@ -19,7 +19,7 @@ return {
   window_background_opacity = 0.92,
   allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
   -- term = "wezterm",
-  -- xcursor_theme = "phinger-cursors",
+  xcursor_theme = "Phinger",
   xcursor_size = 24,
   window_decorations = "NONE",
   keys = {
