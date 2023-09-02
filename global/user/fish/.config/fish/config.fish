@@ -31,6 +31,7 @@ if status is-interactive
     bass source /etc/profile
     fish_add_path -P ~/.local/bin
     fish_add_path -P ~/.cargo/bin
+    fish_add_path -P ~/JLink
     if set -q SSH_CLIENT; or set -q SSH_CONNECTION; or set -q WSL_DISTRO_NAME; or set -q WSLENV; or set -q WSL_INTEROP
         bass source /usr/bin/wayland_disablement.sh
     else
