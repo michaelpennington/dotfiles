@@ -18,13 +18,13 @@ if status is-interactive
     set -gx ASYMPTOTE_PSVIEWER "/usr/bin/zathura"
     set -gx ASYMPTOTE_PDFVIEWER "/usr/bin/zathura"
 
-    abbr -a -- ll 'exa --icons -lah' 
-    abbr -a -- llll 'exa --icons -lagh@T --git' 
+    abbr -a -- ll 'eza --icons -lah' 
+    abbr -a -- llll 'eza --icons -lagh@T --git' 
     abbr -a -- cp 'cp -rv' 
-    abbr -a -- lll 'exa --icons -lagh@ --git' 
+    abbr -a -- lll 'eza --icons -lagh@ --git' 
     abbr -a -- mv 'mv -v' 
     abbr -a -- mkdir 'mkdir -vp' 
-    abbr -a -- l 'exa --icons' 
+    abbr -a -- l 'eza --icons' 
 
     zoxide init fish | source
     starship init fish | source
