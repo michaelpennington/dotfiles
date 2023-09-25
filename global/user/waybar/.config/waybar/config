@@ -29,8 +29,8 @@
 	"modules-right": [
 		"custom/arrow1",
 		//"custom/alsa",
-		//"pulseaudio",
-    "wireplumber",
+		"pulseaudio",
+    // "wireplumber",
 		//"sndio",
 		"custom/arrow2",
 		"network",

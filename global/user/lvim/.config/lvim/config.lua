@@ -12,7 +12,6 @@ lvim.colorscheme = 'zenburn'
 
 vim.api.nvim_set_keymap('n', 'H', ':bp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'L', ':bn<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', ';', ':LvimToggleFormatOnSave<CR>', { noremap = true, silent = true })
 
 vim.opt.mouse = ""
 
@@ -35,17 +34,11 @@ vim.opt.shell = "/bin/sh"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- vim.api.nvim_set_keymap('n', ';', ':!make all<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-a>', '<C-a>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-x>', '<C-x>', { noremap = true })
--- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.lualine.options.theme = "zenburn"
 lvim.builtin.lualine.sections.lualine_y = { 'location' }
--- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = false
--- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -77,7 +70,6 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 }
 
--- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 -- lvim.builtin.notify.active = true
@@ -188,7 +180,12 @@ lvim.plugins = {
   { "martineausimon/vim-lilypond-suite" },
   { "ethanholz/nvim-lastplace" },
   { "igankevich/mesonic" },
-  { "p00f/clangd_extensions.nvim" },
+  {
+    "p00f/clangd_extensions.nvim",
+    config = function()
+      require("clangd_extensions").setup {}
+    end
+  },
   { "simrat39/rust-tools.nvim" },
   { "Shatur/neovim-session-manager" },
   { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -295,7 +292,7 @@ dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
   command = '/home/mpennington/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
-  name = 'cppdbg',
+  -- name = 'cppdbg',
 }
 
 -- dap.configurations.cpp = {
@@ -319,21 +316,25 @@ dap.adapters.cppdbg = {
 --     end,
 --   }
 -- }
+
 dap.configurations.cpp = {
   {
     name = 'Attach to gdbserver :3333',
     type = 'cppdbg',
     request = 'launch',
     MIMode = 'gdb',
+    -- debugServerPath = "/usr/bin/openocd",
+    -- debugServerArgs =
+    -- "-f interface/jlink.cfg -f board/sifive-hifive1-revb.cfg",
     miDebuggerServerAddress = 'localhost:3333',
-    miDebuggerPath = '/usr/bin/arm-none-eabi-gdb',
+    miDebuggerPath = '/usr/bin/riscv64-unknown-elf-gdb',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {},
-    runInTerminal = true,
+    runInTerminal = false,
     setupCommands = {
       {
         text = '-enable-pretty-printing',
@@ -369,6 +370,7 @@ lvim.builtin.which_key.mappings["d"] = {
 }
 
 dap.configurations.c = dap.configurations.cpp
+dap.configurations.asm = dap.configurations.cpp
 
 dap.configurations.rust = dap.configurations.cpp
 
@@ -383,8 +385,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
-
-require("clangd_extensions").setup {}
 
 local rt = require("rust-tools")
 
@@ -413,13 +413,13 @@ vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Ya
 vim.keymap.set("i", "<C-e>", "<cmd>IconPickerInsert<cr>", opts)
 
 require('lspconfig').taplo.setup {}
-
--- require('vim.lsp.log').set_format_func(vim.inspect)
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+require('lspconfig').clangd.setup {
+  settings = {
+    clangd = {
+      cmd = '/usr/lib/llvm/17/bin/clangd'
+    }
+  }
+}
 
 
 vim.cmd([[
