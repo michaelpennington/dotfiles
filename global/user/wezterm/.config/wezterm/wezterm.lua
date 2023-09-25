@@ -9,7 +9,7 @@ end
 
 return {
   -- default_prog = { '/home/mpennington/.local/bin/start_zellij.fish' }
-  color_scheme = "Gruvbox dark, pale (base16)",
+  color_scheme = "Zenburn (base16)",
   use_fancy_tab_bar = false,
   font = wezterm.font {
     family = 'Fantasque Sans Mono',

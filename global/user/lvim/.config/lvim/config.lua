@@ -8,17 +8,7 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- gruvbox material
--- vim.cmd [[colorscheme gruvbox-material]]
--- lvim.colorscheme = 'gruvbox-material'
---
-vim.g.gruvbox_italic_keywords = false
-vim.g.gruvbox_italic_comments = true
-vim.g.gruvbox_flat_style = "dark"
-vim.g.gruvbox_transparent = true
--- vim.cmd [[colorscheme gruvbox-flat]]
-lvim.colorscheme = 'gruvbox-flat'
-
--- vim.o.background = 'dark'
+lvim.colorscheme = 'zenburn'
 
 vim.api.nvim_set_keymap('n', 'H', ':bp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'L', ':bn<CR>', { noremap = true, silent = true })
@@ -50,7 +40,7 @@ vim.api.nvim_set_keymap('n', '<A-a>', '<C-a>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-x>', '<C-x>', { noremap = true })
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.builtin.lualine.options.theme = "gruvbox-flat"
+lvim.builtin.lualine.options.theme = "zenburn"
 lvim.builtin.lualine.sections.lualine_y = { 'location' }
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
@@ -283,6 +273,10 @@ lvim.plugins = {
     dependencies = "nvim-lua/plenary.nvim",
   },
   { 'nvim-treesitter/playground' },
+  {
+    'phha/zenburn.nvim',
+    config = function() require("zenburn").setup() end
+  },
 }
 
 
