@@ -11,8 +11,7 @@ if status is-interactive
     set -gx LANG en_US.UTF-8
     set -gx LC_CTYPE en_US.UTF-8
     set -gx LANGUAGE en_US.UTF-8
-    set -gx DIFFPROG 'lvim -d'
-    set -gx EDITOR lvim
+    set -gx DIFFPROG 'nvim -d'
     set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
     set -gx CHROOT $HOME/chroot
     set -gx ASYMPTOTE_PSVIEWER "/usr/bin/zathura"
@@ -26,15 +25,23 @@ if status is-interactive
     abbr -a -- mkdir 'mkdir -vp' 
     abbr -a -- l 'eza --icons' 
 
-    zoxide init fish | source
-    starship init fish | source
-    bass source /etc/profile
-    fish_add_path -P ~/.local/bin
-    fish_add_path -P ~/.cargo/bin
-    fish_add_path -P ~/JLink
-    if set -q SSH_CLIENT; or set -q SSH_CONNECTION; or set -q WSL_DISTRO_NAME; or set -q WSLENV; or set -q WSL_INTEROP
-        bass source /usr/bin/wayland_disablement.sh
-    else
-        bass source /usr/bin/wayland_enablement.sh
+    set -gx VISUAL "nvim"
+    set -gx EDITOR "nvim"
+
+    if command -q zoxide
+      command zoxide init fish | source
+    end
+    if command -q starship
+      and not string match -r "/dev/tty[0-9]*" (tty)
+       command starship init fish | source
+    end
+    if test -x ~/.asdf/asdf.fish
+      source ~/.asdf/asdf.fish
+    end
+    if test -d ~/.local/bin
+      fish_add_path -P ~/.local/bin
+    end
+    if test -d ~/.cargo/bin
+      fish_add_path -P ~/.cargo/bin
     end
 end
