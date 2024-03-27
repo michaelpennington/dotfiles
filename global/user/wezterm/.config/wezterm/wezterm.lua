@@ -11,6 +11,7 @@ return {
   -- default_prog = { '/home/mpennington/.local/bin/start_zellij.fish' }
   color_scheme = "Zenburn (base16)",
   use_fancy_tab_bar = false,
+  tab_bar_at_bottom = true,
   font = wezterm.font {
     family = 'Fantasque Sans Mono',
     harfbuzz_features = { 'ss01' }
