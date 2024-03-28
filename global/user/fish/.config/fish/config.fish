@@ -35,7 +35,7 @@ if status is-interactive
       and not string match -r "/dev/tty[0-9]*" (tty)
        command starship init fish | source
     end
-    if test -x ~/.asdf/asdf.fish
+    if test -f ~/.asdf/asdf.fish
       source ~/.asdf/asdf.fish
     end
     if test -d ~/.local/bin
