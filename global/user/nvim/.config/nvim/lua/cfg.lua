@@ -8,7 +8,12 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set mouse=")
+vim.cmd("set foldlevel=20")
+vim.cmd("set foldcolumn=1")
+vim.cmd("set foldmethod=expr")
+vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 vim.g.mapleader = " "
+vim.o.undofile = true
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
