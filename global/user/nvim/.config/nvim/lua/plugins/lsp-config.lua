@@ -6,6 +6,12 @@ return {
 		end,
 	},
 	{
+		"folke/neoconf.nvim",
+		config = function()
+			require("neoconf").setup()
+		end,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
@@ -15,6 +21,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+    dependencies = {"folke/neoconf.nvim"},
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
@@ -28,8 +35,7 @@ return {
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 			local bufnr = vim.api.nvim_get_current_buf()
 			vim.keymap.set("n", "<leader>h", function()
-				local current_setting = vim.lsp.inlay_hint.is_enabled(bufnr)
-				vim.lsp.inlay_hint.enable(not current_setting)
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 			end, { noremap = true, silent = true, buffer = bufnr, desc = "toggle inlay hints" })
 		end,
 	},
