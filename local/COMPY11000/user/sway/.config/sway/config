@@ -38,6 +38,9 @@ for_window [app_id="vktut"] floating enable
 for_window [app_id="roho"] floating enable
 for_window [class="roho"] floating enable
 
+for_window [app_id="roco"] floating enable
+for_window [class="roco"] floating enable
+
 seat seat0 hide_cursor 10000
 seat seat0 xcursor_theme phinger-cursors 24
 
