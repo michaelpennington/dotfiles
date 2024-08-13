@@ -12,7 +12,6 @@ if status is-interactive
     set -gx LC_CTYPE en_US.UTF-8
     set -gx LANGUAGE en_US.UTF-8
     set -gx DIFFPROG 'nvim -d'
-    set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
     set -gx CHROOT $HOME/chroot
     set -gx ASYMPTOTE_PSVIEWER "/usr/bin/zathura"
     set -gx ASYMPTOTE_PDFVIEWER "/usr/bin/zathura"
@@ -28,6 +27,9 @@ if status is-interactive
     set -gx VISUAL "nvim"
     set -gx EDITOR "nvim"
 
+    if command -q bat
+      set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    end
     if command -q zoxide
       command zoxide init fish | source
     end
