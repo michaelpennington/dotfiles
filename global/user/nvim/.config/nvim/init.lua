@@ -12,4 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("cfg")
-require("lazy").setup("plugins")
+require("lazy").setup({
+	spec = { import = "plugins" },
+	checker = { enabled = true },
+	performance = {
+		reset_packpath = false,
+		rtp = {
+			paths = { "/usr/share/vim/vimfiles" },
+		},
+	},
+})
