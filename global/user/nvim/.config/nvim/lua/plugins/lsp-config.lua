@@ -21,13 +21,15 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-    dependencies = {"folke/neoconf.nvim"},
+		dependencies = { "folke/neoconf.nvim" },
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+			---@diagnostic disable-next-line: missing-fields
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+			---@diagnostic disable-next-line: missing-fields
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
